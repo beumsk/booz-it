@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="">
+  <meta name="keywords" content="Booz-it">
+  <meta name="author" content="Rémy Beumier">
+
+  <!-- open graph data -->
+  <meta property="og:title" content="Booz-it">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:secure_url" content="">
+  <meta property="og:description" content="">
+  
+  <!-- Icons -->
+  <!-- <link rel="icon" type="image/png" href="img/apple-touch-icon.png"> -->
+  <!-- <link rel="apple-touch-icon" href="img/apple-touch-icon.png"> -->
+
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="./style.css">
+
+  <title>BOOZ-IT</title>
+</head>
+<body>
+
+<div id="window">
+  
+  <form id="players-form" class="" onsubmit="event.preventDefault();">
+    <legend class="title">BOOZ-IT</legend>
+    <div class="form-group">
+      <label for="player1" class="sr-only">Player 1</label>
+      <input class="form-control form-control-sm input" id="player1" type="text" placeholder="Player 1" required>
+    </div>
+    <div class="form-group">
+      <label for="player2" class="sr-only">Player 2</label>
+      <input class="form-control form-control-sm input" id="player2" type="text" placeholder="Player 2" required>
+    </div>
+    <div class="btn btn-outline-light btn-block btn-sm" id="more">Add a player</div>
+    <p id="errors" class="mt-2"></p>
+    <button type="submit" class="btn btn-outline-light btn-block btn-sm" id="play">Play</button>
+  </form>
+
+  <div id="screen" class="d-none">
+    <div id="text" class=""></div>
+    <div id="stop" class="btn btn-absolute btn-outline-light btn-sm">Stop</div>
+    <div id="new-rule" class="btn btn-absolute btn-outline-light btn-sm">New rule</div>
+    <div id="current-rules" class="btn btn-absolute btn-outline-light btn-sm">Current rules</div>
+  </div>
+  
+  <div id="rules-screen" class="d-none">
+    <p class="title">Current rules</p>
+    <div id="rules-list"></div>
+    <div id="rules-ok" class="btn btn-outline-light btn-block btn-sm">OK</div>
+  </div>
+
+  <form id="new-rule-form" class="d-none" onsubmit="event.preventDefault();">
+    <legend class="title">Add your rule</legend>
+    <div class="form-group">
+      <label for="rule" class="sr-only">New rule</label>
+      <input class="form-control form-control-sm input" id="rule" type="text" placeholder="New rule" required>
+    </div>
+    <button type="submit" class="btn btn-outline-light btn-block btn-sm" id="add">Add rule</button>
+  </form>
+
+</div>
+
+<script src='https://code.jquery.com/jquery-3.4.1.slim.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'></script>
+<script src="./script.js"></script>
+
+</body>
+</html>

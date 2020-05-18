@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+}
+
+#window {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  min-height: 100vh;
+  color: white;
+  background: #e53935;
+}
+#window::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(-30deg, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 50%);
+}
+
+#window > * {
+/*   width: 100%; */
+  z-index: 100;
+}
+
+#players-form,
+#new-rule-form,
+#rules-screen {
+  width: 100%;
+  max-width: 480px;
+  padding: 0 20px;
+}
+
+#screen {
+  width: 100%;
+}
+
+#text {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  height: 100vh;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+#text > * {
+  max-width: 480px;
+}
+
+#players-form {
+}
+
+.title {
+  text-align: center;
+  font-size: 32px;
+  letter-spacing: 10px;
+}
+
+#new-rule-form {
+}
+
+.btn-absolute {
+  position: absolute;
+  border-radius: 0;
+}
+
+#stop {
+  top: 0;
+  left: 0;
+}
+
+#new-rule {
+  top: 0;
+  right: 0;
+}
+
+#current-rules {
+  bottom: 0;
+  left: 0;
+}
+
+#text, legend {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+
+/* decide screen size */
+/* decide colors */
+/* change stop button (top left?) */
