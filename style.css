@@ -59,6 +59,7 @@ body {
 }
 
 #text > * {
+  width: 100%;
   max-width: 480px;
 }
 
@@ -102,6 +103,5 @@ body {
 }
 
 
-/* decide screen size */
+/* improve responsiveness -> big screens */
 /* decide colors */
-/* change stop button (top left?) */
