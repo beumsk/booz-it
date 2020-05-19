@@ -176,32 +176,32 @@ var instructionsLibrary = [
   // general rule
   {nr: -1, sips: 3, text: "Everybody drinks from their bad hand until further notice. Drink 3 sips everytime you fail."},
   // one turn rule
-  // {nr: 1, sips: 3, text: "111, start one turn of Truth or Dare with the player on your right."},
-  // {nr: 1, sips: 3, text: "111, start one turn of rock-paper-cisors with the player on your right."},
+  {nr: 1, sips: 3, text: "111, start one turn of Truth or Dare with the player on your right."},
+  {nr: 1, sips: 3, text: "111, start one turn of rock-paper-cisors with the player on your right."},
   {nr: 1, sips: 3, text: "111, start one turn of Never have I ever."},
   // confess rules
-  // {nr: 1, sips: 3, text: "111, confess your biggest fear or drink DDD sips."},
+  {nr: 1, sips: 3, text: "111, confess your biggest fear or drink DDD sips."},
   {nr: 1, sips: 3, text: "111, confess your latest lie or drink DDD sips."},
   // get judged rules
-  // {nr: 1, sips: 3, text: "111, show your best celebration. The others will judge if it's good. If not, drink DDD sips. If it is, distribute those sips."},
-  // {nr: 1, sips: 3, text: "111, show your best dance move. The others will judge if it's good. If not, drink DDD sips. If it is, distribute those sips."},
+  {nr: 1, sips: 3, text: "111, show your best celebration. The others will judge if it's good. If not, drink DDD sips. If it is, distribute those sips."},
+  {nr: 1, sips: 3, text: "111, show your best dance move. The others will judge if it's good. If not, drink DDD sips. If it is, distribute those sips."},
   {nr: 1, sips: 3, text: "111, tell your best pick up line. The others will judge if it's good. If not, drink DDD sips. If it is, distribute those sips."},
   // serie rules
-  // {nr: 1, sips: 3, text: "111, start a serie of beers. The first to repeat or fail drinks DDD sips."},
-  // {nr: 1, sips: 3, text: "111, start a serie of countries. The first to repeat or fail drinks DDD sips."},
-  // {nr: 1, sips: 3, text: "111, start a serie of car brands. The first to repeat or fail drinks DDD sips."},
-  // {nr: 1, sips: 3, text: "111, start a serie of computer brands. The first to repeat or fail drinks DDD sips."},
+  {nr: 1, sips: 3, text: "111, start a serie of beers. The first to repeat or fail drinks DDD sips."},
+  {nr: 1, sips: 3, text: "111, start a serie of countries. The first to repeat or fail drinks DDD sips."},
+  {nr: 1, sips: 3, text: "111, start a serie of car brands. The first to repeat or fail drinks DDD sips."},
+  {nr: 1, sips: 3, text: "111, start a serie of computer brands. The first to repeat or fail drinks DDD sips."},
   {nr: 1, sips: 3, text: "111, start a serie of Disney movies. The first to repeat or fail drinks DDD sips."},
   // contest rules
-  // {nr: 2, sips: 3, text: "111 and 222, play rock-paper-scissors against each other. The winner distributes DDD sips."},
-  // {nr: 2, sips: 3, text: "111 and 222, the first to finish his drink distributes DDD sips."},
+  {nr: 2, sips: 3, text: "111 and 222, play rock-paper-scissors against each other. The winner distributes DDD sips."},
+  {nr: 2, sips: 3, text: "111 and 222, the first to finish his drink distributes DDD sips."},
   {nr: 2, sips: 3, text: "111 and 222, wrestle. The winner distributes DDD sips."},
   // dilemma rules
   {nr: 2, sips: 3, text: "111, ask a dilemma question to 222. He drinks if he doesn't answer."},
   // role rules
   {nr: 2, sips: 3, text: "111, you are now 222's mirror. You drink every sip s-he drinks from the game."},
   // pointing rules
-  // {nr: 3, sips: 3, text: "Everybody, point to the dumbest player. He will distribute DDD sips."},
+  {nr: 3, sips: 3, text: "Everybody, point to the dumbest player. He will distribute DDD sips."},
   {nr: 3, sips: 3, text: "Everybody, point the geekiest player. He will distribute DDD sips."},
   // compare rules
   {nr: 3, sips: 3, text: "111, between 222 and 333, who is the best at FIFA?"}
