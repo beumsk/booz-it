@@ -26,46 +26,49 @@
 </head>
 <body>
 
-<div id="window">
-  
-  <form id="players-form" class="" onsubmit="event.preventDefault();">
-    <legend class="title">BOOZ-IT</legend>
-    <div class="form-group">
-      <label for="player1" class="sr-only">Player 1</label>
-      <input class="form-control form-control-sm input" id="player1" type="text" placeholder="Player 1" required>
-    </div>
-    <div class="form-group">
-      <label for="player2" class="sr-only">Player 2</label>
-      <input class="form-control form-control-sm input" id="player2" type="text" placeholder="Player 2" required>
-    </div>
-    <div class="btn btn-outline-light btn-block btn-sm" id="more">Add a player</div>
-    <p id="errors" class="mt-2"></p>
-    <button type="submit" class="btn btn-outline-light btn-block btn-sm" id="play">Play</button>
-  </form>
 
-  <div id="screen" class="d-none">
-    <div id="text" class=""></div>
-    <div id="stop" class="btn btn-absolute btn-outline-light btn-sm">Stop</div>
-    <div id="new-rule" class="btn btn-absolute btn-outline-light btn-sm">New rule</div>
-    <div id="current-rules" class="btn btn-absolute btn-outline-light btn-sm">Current rules</div>
+  <div id="window">
+  
+    <form id="players-screen" class="" onsubmit="event.preventDefault();">
+      <legend class="title">BOOZ-IT</legend>
+      <div class="form-group">
+        <label for="player1" class="sr-only">Player 1</label>
+        <input id="player1" class="form-control form-control-sm input" type="text" placeholder="Player 1" required>
+      </div>
+      <div class="form-group">
+        <label for="player2" class="sr-only">Player 2</label>
+        <input id="player2" class="form-control form-control-sm input" type="text" placeholder="Player 2" required>
+      </div>
+      <div id="add-player-btn" class="btn btn-outline-light btn-block btn-sm">Add a player</div>
+      <p id="errors" class="mt-2"></p>
+      <button id="start-btn" type="submit" class="btn btn-outline-light btn-block btn-sm">Start</button>
+      <div id="resume-btn" class="btn btn-outline-light btn-block btn-sm d-none">Resume</div>
+    </form>
+  
+    <div id="play-screen" class="d-none">
+      <div id="text" class=""></div>
+      <div id="stop-btn" class="btn btn-absolute btn-outline-light btn-sm">Stop</div>
+      <div id="new-rule-btn" class="btn btn-absolute btn-outline-light btn-sm">New rule</div>
+      <div id="current-rules-btn" class="btn btn-absolute btn-outline-light btn-sm">Current rules</div>
+    </div>
+    
+    <div id="rules-screen" class="d-none">
+      <p class="title">Current rules</p>
+      <div id="rules-list"></div>
+      <div id="rules-ok-btn" class="btn btn-outline-light btn-block btn-sm">OK</div>
+    </div>
+  
+    <form id="new-rule-screen" class="d-none" onsubmit="event.preventDefault();">
+      <legend class="title">Add your rule</legend>
+      <div class="form-group">
+        <label for="rule" class="sr-only">New rule</label>
+        <input id="rule" class="form-control form-control-sm input" type="text" placeholder="New rule">
+      </div>
+      <button id="add-rule-btn" type="submit" class="btn btn-outline-light btn-block btn-sm">Add rule</button>
+    </form>
+  
   </div>
   
-  <div id="rules-screen" class="d-none">
-    <p class="title">Current rules</p>
-    <div id="rules-list"></div>
-    <div id="rules-ok" class="btn btn-outline-light btn-block btn-sm">OK</div>
-  </div>
-
-  <form id="new-rule-form" class="d-none" onsubmit="event.preventDefault();">
-    <legend class="title">Add your rule</legend>
-    <div class="form-group">
-      <label for="rule" class="sr-only">New rule</label>
-      <input class="form-control form-control-sm input" id="rule" type="text" placeholder="New rule" required>
-    </div>
-    <button type="submit" class="btn btn-outline-light btn-block btn-sm" id="add">Add rule</button>
-  </form>
-
-</div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>

@@ -1,8 +1,6 @@
 // current rules END mechanism (remove from array, create message)
-// pointing rules only for 3+ players
-// stopit vs pauseit // startit vs resumeit
-// truth or dare
-// dilemma
+// end of game special screen
+// empty input btn
 
 var turn = 0;
 var moreCount = 2;
@@ -15,13 +13,13 @@ var outroText = "<h2>Great game!</h2><p>Click to come back to the main screen an
 // $("#player1").focus();
 
 // click "more players" button to add players
-$("#more").on("click", function() {
+$("#add-player-btn").on("click", function() {
   moreCount++;
-  $("#more").before('<div class="form-group"> <label for="player' + moreCount + '" class="sr-only">Player ' + moreCount + '</label> <input class="form-control form-control-sm input" id="player' + moreCount + '" type="text" placeholder="Player ' + moreCount + '"> </div>');
+  $(this).before('<div class="form-group"> <label for="player' + moreCount + '" class="sr-only">Player ' + moreCount + '</label> <input class="form-control form-control-sm input" id="player' + moreCount + '" type="text" placeholder="Player ' + moreCount + '"> </div>');
 });
 
 // click "Play" button to save players names and reach game page
-$("#play").on("click", function() {
+$("#start-btn").on("click", function() {
   players.length = 0;
   // save players
   for(i=1; i<=moreCount; i++) {
@@ -85,32 +83,32 @@ $("#text").on("click", function() {
 });
 
 // submit new rule
-$("#add").on("click", function() {
+$("#add-rule-btn").on("click", function() {
   if ($("#rule").val() !== "") {
     instructions.push({nr: 0, sips: 3, text:$("#rule").val()});
   }
-  screenSwitch("#screen");
+  screenSwitch("#play-screen");
 });
 
 // go back to main screen from list of current rules
-$("#rules-ok").on("click", function() {
-  screenSwitch("#screen");
+$("#rules-ok-btn").on("click", function() {
+  screenSwitch("#play-screen");
 });
 
 // click stop button to return on players page
-$("#stop").on("click", function() {
+$("#stop-btn").on("click", function() {
   stopIt();
 });
 
 // click new rule button to add a rule
-$("#new-rule").on("click", function() {
+$("#new-rule-btn").on("click", function() {
   colorSwitch();
-  screenSwitch("#new-rule-form");
+  screenSwitch("#new-rule-screen");
   $("#rule").val("").focus();
 });
 
 // click current rule button to see list of current rules 
-$("#current-rules").on("click", function() {
+$("#current-rules-btn").on("click", function() {
   colorSwitch();
   screenSwitch("#rules-screen");
   $("#rules-list").html("");
@@ -124,9 +122,15 @@ $("#current-rules").on("click", function() {
   }
 });
 
+// click on resume the game
+$("#resume-btn").on("click", function() {
+  resumeIt();
+});
+
 // start the game
 function startIt(nPlayer, text) {
   colorSwitch();
+  currentRules.length = 0;
   if (nPlayer >= 3) {
     instructions = instructionsLibrary.slice();
   }
@@ -136,8 +140,9 @@ function startIt(nPlayer, text) {
       return val.nr <= 2;
     });
   }
-  screenSwitch("#screen");
+  screenSwitch("#play-screen");
   $("#text").html(text);
+  $("#resume-btn").removeClass("d-none");
   console.log(instructions.length);
 }
 
@@ -146,21 +151,21 @@ function pauseIt() {
 }
 
 function resumeIt() {
-  
+  screenSwitch("#play-screen");
 }
 
 // stop the game
 function stopIt() {
   colorSwitch();
-  screenSwitch("#players-form");
+  screenSwitch("#players-screen");
   $("#player1").focus();
   // empty players and current Rules arrays
-  players.length = 0;
-  currentRules.length = 0;
+  // players.length = 0;
+  // currentRules.length = 0;
 }
 
 function screenSwitch(toShow) {
-  $("#players-form, #screen, #rules-screen, #new-rule-form").addClass("d-none");
+  $("#players-screen, #play-screen, #rules-screen, #new-rule-screen").addClass("d-none");
   $(toShow).removeClass("d-none");
 }
 
@@ -171,10 +176,9 @@ var instructionsLibrary = [
   // general rule
   {nr: -1, sips: 3, text: "Everybody drinks from their bad hand until further notice. Drink 3 sips everytime you fail."},
   // one turn rule
-  {nr: 0, sips: 3, text: "Everybody, do one turn of Never have I ever."},
-  // pointing rules
-  // {nr: 0, sips: 3, text: "Everybody, point to the dumbest player. He will distribute DDD sips."},
-  {nr: 0, sips: 3, text: "Everybody, point the geekiest player. He will distribute DDD sips."},
+  // {nr: 1, sips: 3, text: "111, start one turn of Truth or Dare with the player on your right."},
+  // {nr: 1, sips: 3, text: "111, start one turn of rock-paper-cisors with the player on your right."},
+  {nr: 1, sips: 3, text: "111, start one turn of Never have I ever."},
   // confess rules
   // {nr: 1, sips: 3, text: "111, confess your biggest fear or drink DDD sips."},
   {nr: 1, sips: 3, text: "111, confess your latest lie or drink DDD sips."},
@@ -192,8 +196,13 @@ var instructionsLibrary = [
   // {nr: 2, sips: 3, text: "111 and 222, play rock-paper-scissors against each other. The winner distributes DDD sips."},
   // {nr: 2, sips: 3, text: "111 and 222, the first to finish his drink distributes DDD sips."},
   {nr: 2, sips: 3, text: "111 and 222, wrestle. The winner distributes DDD sips."},
+  // dilemma rules
+  {nr: 2, sips: 3, text: "111, ask a dilemma question to 222. He drinks if he doesn't answer."},
   // role rules
   {nr: 2, sips: 3, text: "111, you are now 222's mirror. You drink every sip s-he drinks from the game."},
+  // pointing rules
+  // {nr: 3, sips: 3, text: "Everybody, point to the dumbest player. He will distribute DDD sips."},
+  {nr: 3, sips: 3, text: "Everybody, point the geekiest player. He will distribute DDD sips."},
   // compare rules
   {nr: 3, sips: 3, text: "111, between 222 and 333, who is the best at FIFA?"}
 ];

@@ -1,17 +1,18 @@
 * {
   box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 body {
 }
 
 #window {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
   color: white;
   background: #e53935;
@@ -31,28 +32,23 @@ body {
   z-index: 100;
 }
 
-#players-form,
-#new-rule-form,
+#players-screen,
+#new-rule-screen,
 #rules-screen {
   width: 100%;
   max-width: 480px;
   padding: 0 20px;
 }
 
-#screen {
+#play-screen {
   width: 100%;
 }
 
 #text {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   padding: 0 20px;
   cursor: pointer;
@@ -63,16 +59,10 @@ body {
   max-width: 480px;
 }
 
-#players-form {
-}
-
 .title {
   text-align: center;
   font-size: 32px;
   letter-spacing: 10px;
-}
-
-#new-rule-form {
 }
 
 .btn-absolute {
@@ -80,28 +70,19 @@ body {
   border-radius: 0;
 }
 
-#stop {
+#stop-btn {
   top: 0;
   left: 0;
 }
 
-#new-rule {
+#new-rule-btn {
   top: 0;
   right: 0;
 }
 
-#current-rules {
+#current-rules-btn {
   bottom: 0;
   left: 0;
 }
 
-#text, legend {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-
 /* improve responsiveness -> big screens */
-/* decide colors */
