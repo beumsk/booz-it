@@ -1,5 +1,8 @@
 * {
   box-sizing: border-box;
+}
+
+p, div, span, legend, li {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
