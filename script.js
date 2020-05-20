@@ -1,5 +1,5 @@
+// BOOZ-IT animation on load
 // current rules END mechanism (remove from array, create message)
-// end of game special screen
 // empty input btn
 
 var turn = 0;
@@ -20,6 +20,7 @@ $("#add-player-btn").on("click", function() {
 
 // click "Play" button to save players names and reach game page
 $("#start-btn").on("click", function() {
+  // make sure to empty players array
   players.length = 0;
   // save players
   for(i=1; i<=moreCount; i++) {
@@ -27,7 +28,6 @@ $("#start-btn").on("click", function() {
       players.push($("input[id='player" + i + "']").val().toUpperCase());
     }
   }
-  console.log(players);
   // show game page if players.length >= 2
   if (players.length >= 2) {
     startIt(players.length, introText);
@@ -73,9 +73,9 @@ $("#text").on("click", function() {
     delete instructions[randomInstruction];
     instructions = instructions.filter(Boolean);
   }
+  // end of game
   else if (instructions.length === 0) {
-    // end of game message
-    $("#text").html(outroText);
+    endIt();
   }
   else {
     stopIt();
@@ -102,14 +102,12 @@ $("#stop-btn").on("click", function() {
 
 // click new rule button to add a rule
 $("#new-rule-btn").on("click", function() {
-  colorSwitch();
   screenSwitch("#new-rule-screen");
   $("#rule").val("").focus();
 });
 
 // click current rule button to see list of current rules 
 $("#current-rules-btn").on("click", function() {
-  colorSwitch();
   screenSwitch("#rules-screen");
   $("#rules-list").html("");
   if (currentRules.length > 0) {
@@ -127,13 +125,26 @@ $("#resume-btn").on("click", function() {
   resumeIt();
 });
 
+// click "Restart" button to save players names and reach game page
+$("#restart-btn").on("click", function() {
+  startIt(players.length, introText);
+});
+
+// click Change players button to return on players page
+$("#change-btn").on("click", function() {
+  $("#resume-btn").addClass("d-none");
+  stopIt();
+});
+
 // start the game
 function startIt(nPlayer, text) {
-  colorSwitch();
+  // make sure currentRules array is emptied 
   currentRules.length = 0;
+  // take all instructions if players are 3 or more
   if (nPlayer >= 3) {
     instructions = instructionsLibrary.slice();
   }
+  // remove instructions design for more than 2 players
   else if (nPlayer >= 2) {
     instructions = instructionsLibrary.slice();
     instructions = instructions.filter(function(val) {
@@ -143,7 +154,7 @@ function startIt(nPlayer, text) {
   screenSwitch("#play-screen");
   $("#text").html(text);
   $("#resume-btn").removeClass("d-none");
-  console.log(instructions.length);
+  console.log(instructions.length, players);
 }
 
 function pauseIt() {
@@ -154,18 +165,20 @@ function resumeIt() {
   screenSwitch("#play-screen");
 }
 
+// end of game
+function endIt() {
+  screenSwitch("#end-screen");
+}
+
 // stop the game
 function stopIt() {
-  colorSwitch();
   screenSwitch("#players-screen");
   $("#player1").focus();
-  // empty players and current Rules arrays
-  // players.length = 0;
-  // currentRules.length = 0;
 }
 
 function screenSwitch(toShow) {
-  $("#players-screen, #play-screen, #rules-screen, #new-rule-screen").addClass("d-none");
+  colorSwitch();
+  $("[id$='-screen']").addClass("d-none");
   $(toShow).removeClass("d-none");
 }
 

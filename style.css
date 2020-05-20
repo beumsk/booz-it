@@ -6,16 +6,20 @@
           user-select: none;
 }
 
-body {
+@media (min-width: 768px) {
+  body {
+    font-size: 20px;
+  }
 }
 
 #window {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   color: white;
-  background: #e53935;
+  background: #3949ab;
 }
 #window::after {
   content: "";
@@ -32,9 +36,7 @@ body {
   z-index: 100;
 }
 
-#players-screen,
-#new-rule-screen,
-#rules-screen {
+[id$="-screen"] {
   width: 100%;
   max-width: 480px;
   padding: 0 20px;
@@ -68,6 +70,13 @@ body {
 .btn-absolute {
   position: absolute;
   border-radius: 0;
+}
+
+@media (min-width: 768px) {
+  .btn-absolute {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
 }
 
 #stop-btn {
