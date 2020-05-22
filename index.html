@@ -29,15 +29,17 @@
 
   <div id="window">
   
-    <form id="players-screen" class="" onsubmit="event.preventDefault();">
+    <form id="players-screen" class="" onsubmit="event.preventDefault();" autocomplete="off">
       <legend class="title">BOOZ-IT</legend>
       <div class="form-group">
         <label for="player1" class="sr-only">Player 1</label>
         <input id="player1" class="form-control form-control-sm input" type="text" placeholder="Player 1" required>
+        <span class="empty empty1" aria-hidden="true">&times;</span>
       </div>
       <div class="form-group">
         <label for="player2" class="sr-only">Player 2</label>
         <input id="player2" class="form-control form-control-sm input" type="text" placeholder="Player 2" required>
+        <span class="empty empty2" aria-hidden="true">&times;</span>
       </div>
       <div id="add-player-btn" class="btn btn-outline-light btn-block btn-sm">Add a player</div>
       <p id="errors" class="mt-2"></p>
@@ -67,11 +69,12 @@
       <div id="rules-ok-btn" class="btn btn-outline-light btn-block btn-sm">OK</div>
     </div>
   
-    <form id="new-rule-screen" class="d-none" onsubmit="event.preventDefault();">
+    <form id="new-rule-screen" class="d-none" onsubmit="event.preventDefault();" autocomplete="off">
       <legend class="title">Add your rule</legend>
       <div class="form-group">
         <label for="rule" class="sr-only">New rule</label>
         <input id="rule" class="form-control form-control-sm input" type="text" placeholder="New rule">
+        <span class="empty emptyr" aria-hidden="true">&times;</span>
       </div>
       <button id="add-rule-btn" type="submit" class="btn btn-outline-light btn-block btn-sm">Add rule</button>
     </form>

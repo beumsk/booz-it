@@ -1,6 +1,5 @@
 // BOOZ-IT animation on load
-// current rules END mechanism (remove from array, create message)
-// empty input btn
+// current rules -> add en END mechanism (remove from array, create message)
 
 var turn = 0;
 var moreCount = 2;
@@ -12,10 +11,13 @@ var outroText = "<h2>Great game!</h2><p>Click to come back to the main screen an
 
 // $("#player1").focus();
 
-// click "more players" button to add players
+// click "more players" button to add players + empty input event
 $("#add-player-btn").on("click", function() {
   moreCount++;
-  $(this).before('<div class="form-group"> <label for="player' + moreCount + '" class="sr-only">Player ' + moreCount + '</label> <input class="form-control form-control-sm input" id="player' + moreCount + '" type="text" placeholder="Player ' + moreCount + '"> </div>');
+  $(this).before('<div class="form-group"> <label for="player' + moreCount + '" class="sr-only">Player ' + moreCount + '</label> <input class="form-control form-control-sm input" id="player' + moreCount + '" type="text" placeholder="Player ' + moreCount + '"> <span class="empty empty' + moreCount + '" aria-hidden="true">&times;</span> </div>');
+  $(".empty" + moreCount).on("click", function() {
+    $(this).prev("input").val("");
+  });
 });
 
 // click "Play" button to save players names and reach game page
@@ -123,6 +125,11 @@ $("#current-rules-btn").on("click", function() {
 // click on resume the game
 $("#resume-btn").on("click", function() {
   resumeIt();
+});
+
+// click on x to empty input
+$(".empty").on("click", function() {
+  $(this).prev("input").val("");
 });
 
 // click "Restart" button to save players names and reach game page
