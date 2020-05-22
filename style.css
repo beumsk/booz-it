@@ -45,6 +45,8 @@ p, div, span, legend, li {
 
 #play-screen {
   width: 100%;
+  max-width: initial;
+  padding: 0;
 }
 
 #text {
