@@ -2,17 +2,15 @@
   box-sizing: border-box;
 }
 
+body {
+/*   min-width: 280px; */
+}
+
 p, div, span, legend, li {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-}
-
-@media (min-width: 768px) {
-  body {
-    font-size: 20px;
-  }
 }
 
 #window {
@@ -75,13 +73,6 @@ p, div, span, legend, li {
   border-radius: 0;
 }
 
-@media (min-width: 768px) {
-  .btn-absolute {
-    padding: 10px 20px;
-    font-size: 16px;
-  }
-}
-
 #stop-btn {
   top: 0;
   left: 0;
@@ -97,4 +88,32 @@ p, div, span, legend, li {
   left: 0;
 }
 
+.btn, .form-control {
+  border-radius: 0;
+  background-clip: unset;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 20px;
+  }
+  
+  .title {
+    font-size: 44px;
+  }
+  
+  .btn {
+    padding: .375rem .75rem;
+    font-size: 1rem;
+  }
+  
+  .form-control {
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+  }
+}
+
+
 /* improve responsiveness -> big screens */
+/* place buttons at bottom? */
