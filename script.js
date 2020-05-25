@@ -1,5 +1,6 @@
 // BOOZ-IT animation on load
 // current rules -> add en END mechanism (remove from array, create message)
+// resume to add/remove rules based on nb players
 
 var turn = 0;
 var moreCount = 2;
@@ -122,7 +123,7 @@ $("#current-rules-btn").on("click", function() {
   }
 });
 
-// click on resume the game
+// click on resume to resume the game
 $("#resume-btn").on("click", function() {
   resumeIt();
 });
@@ -164,12 +165,23 @@ function startIt(nPlayer, text) {
   console.log(instructions.length, players);
 }
 
-function pauseIt() {
-  
-}
-
 function resumeIt() {
-  screenSwitch("#play-screen");
+  // make sure to empty players array
+  players.length = 0;
+  // save players
+  for(i=1; i<=moreCount; i++) {
+    if ($("input[id='player" + i + "']").val() !== "") {
+      players.push($("input[id='player" + i + "']").val().toUpperCase());
+    }
+  }
+  // show game page if players.length >= 2
+  if (players.length >= 2) {
+    $("#text").html("Click to continue your game.");
+    screenSwitch("#play-screen");
+  }
+  else {
+    $("#errors").text("You must have at least 2 players.");
+  }
 }
 
 // end of game
