@@ -3,7 +3,6 @@
 // resumeIt to take into account player change? -> names, rules, etc.
 
 var turn = 0;
-var moreCount = 2;
 var players = [];
 var currentRules = [];
 
@@ -14,23 +13,16 @@ var outroText = "<h2>Great game!</h2><p>Click to come back to the main screen an
 
 // click "more players" button to add players + empty input event
 $("#add-player-btn").on("click", function() {
-  moreCount++;
-  $(this).before('<div class="form-group"> <label for="player' + moreCount + '" class="sr-only">Player ' + moreCount + '</label> <input class="form-control form-control-sm input" id="player' + moreCount + '" type="text" placeholder="Player ' + moreCount + '"> <span class="empty empty' + moreCount + '" aria-hidden="true">&times;</span> </div>');
-  $(".empty" + moreCount).on("click", function() {
+  var playerID = $("input[id^='player']").length + 1;
+  $(this).before('<div class="form-group"> <label for="player' + playerID + '" class="sr-only">Player ' + playerID + '</label> <input class="form-control form-control-sm input" id="player' + playerID + '" type="text" placeholder="Player ' + playerID + '"> <span class="empty empty' + playerID + '" aria-hidden="true">&times;</span> </div>');
+  $(".empty" + playerID).on("click", function() {
     $(this).prev("input").val("");
   });
 });
 
 // click "Play" button to save players names and reach game page
 $("#start-btn").on("click", function() {
-  // make sure to empty players array
-  players.length = 0;
-  // save players
-  for(i=1; i<=moreCount; i++) {
-    if ($("input[id='player" + i + "']").val() !== "") {
-      players.push($("input[id='player" + i + "']").val().toUpperCase());
-    }
-  }
+  savePlayers();
   // show game page if players.length >= 2
   if (players.length >= 2) {
     startIt(players.length, introText);
@@ -179,6 +171,19 @@ function endIt() {
 function stopIt() {
   screenSwitch("#players-screen");
   $("#player1").focus();
+}
+
+// save players in array
+function savePlayers() {
+  // make sure to empty players array
+  players.length = 0;
+  // save players
+  var playersElts = $("input[id^='player']");
+  for(var i = 0; i <= playersElts.length-1; i++) {
+    if (playersElts[i].value !== "") {
+      players.push(playersElts[i].value.toUpperCase());
+    }
+  }
 }
 
 function screenSwitch(toShow) {
