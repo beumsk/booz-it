@@ -1,6 +1,6 @@
 // BOOZ-IT animation on load
-// current rules -> add en END mechanism (remove from array, create message)
-// resume to add/remove rules based on nb players
+// END mechanism for current rules (remove from array, create message)
+// resumeIt to take into account player change? -> names, rules, etc.
 
 var turn = 0;
 var moreCount = 2;
@@ -166,22 +166,8 @@ function startIt(nPlayer, text) {
 }
 
 function resumeIt() {
-  // make sure to empty players array
-  players.length = 0;
-  // save players
-  for(i=1; i<=moreCount; i++) {
-    if ($("input[id='player" + i + "']").val() !== "") {
-      players.push($("input[id='player" + i + "']").val().toUpperCase());
-    }
-  }
-  // show game page if players.length >= 2
-  if (players.length >= 2) {
-    $("#text").html("Click to continue your game.");
-    screenSwitch("#play-screen");
-  }
-  else {
-    $("#errors").text("You must have at least 2 players.");
-  }
+  // $("#text").html("Click to continue your game.");
+  screenSwitch("#play-screen");
 }
 
 // end of game
