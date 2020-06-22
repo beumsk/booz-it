@@ -1,8 +1,6 @@
 // MORE rules
-// add a way to open contribution for game rules
 // add buy me a coffee
-// add about page -> drink responsibly, fun, 
-// BOOZ-IT animation on load
+// add about page -> drink responsibly, fun
 // END mechanism for current rules (remove from array, create message)
 // resumeIt to take into account player change? -> names, rules, etc.
 
